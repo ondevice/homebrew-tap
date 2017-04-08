@@ -26,6 +26,31 @@ class Ondevice < Formula
     end
   end
 
+  def plist; <<-EOS.undent
+   <?xml version="1.0" encoding="UTF-8"?>
+   <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+   <plist version="1.0">
+   <dict>
+     <key>Label</key>
+       <string>#{plist_name}</string>
+     <key>ProgramArguments</key>
+       <array>
+         <string>#{opt_bin}/ondevice</string>
+         <string>daemon</string>
+       </array>
+     <key>RunAtLoad</key>
+       <true/>
+     <key>KeepAlive</key>
+       <true/>
+     <key>StandardErrorPath</key>
+       <string>#{var}/log/ondevice.log</string>
+     <key>StandardOutPath</key>
+       <string>#{var}/log/ondevice.log</string>
+   </dict>
+   </plist>
+   EOS
+  end
+
   test do
     # TODO run a few self checks (e.g. `ondevice login`, `ondevice ssh` to a demo device,...)
     system bin/"ondevice", "help"
