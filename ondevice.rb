@@ -5,7 +5,7 @@ class Ondevice < Formula
   desc "Client for the ondevice.io service"
   homepage "https://ondevice.io/"
   url "https://github.com/ondevice/ondevice/archive/v0.5.2.tar.gz"
-  sha256 "269b48e2a103d600b4c5c4199e380c873a41c2d43afec34356b6114247e44b35"
+  sha256 "f8f00ffa82b2f33fef67866dc8512d6e01c0fedbf2aef216f08a0a39a3736e79"
 
   # depends_on "cmake" => :build
   depends_on "glide" => :build
