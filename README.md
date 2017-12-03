@@ -1,14 +1,17 @@
-# homebrew-ondevice
+# ondevice homebrew-tap
 
 macOS homebrew tap for the [ondevice][ondevice] commandline client.
 
 You can install this using:
 
 ```sh
-brew install ondevice/ondevice/ondevice
+brew install ondevice/tap/ondevice
 ```
 
 After that, use `ondevice login` to authenticate.
+
+See [docs.ondevice.io](https://docs.ondevice.io/) for details.
+
 
 ## Running the device daemon
 
