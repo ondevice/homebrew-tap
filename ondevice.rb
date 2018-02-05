@@ -4,8 +4,8 @@
 class Ondevice < Formula
   desc "Client for the ondevice.io service"
   homepage "https://ondevice.io/"
-  url "https://github.com/ondevice/ondevice/archive/v0.5.2.tar.gz"
-  sha256 "f8f00ffa82b2f33fef67866dc8512d6e01c0fedbf2aef216f08a0a39a3736e79"
+  url "https://github.com/ondevice/ondevice/archive/v0.6.0.tar.gz"
+  sha256 "18e22b7a5078d576ec8a7c865119dff67a2bcadb58deda5d409eeb1175d9596d"
 
   # depends_on "cmake" => :build
   depends_on "glide" => :build
@@ -20,13 +20,13 @@ class Ondevice < Formula
 
     cd dir do
       system "glide", "install", "-v"
-      system "go", "build", "-o", "ondevice"
+      system "go", "build", "-ldflags", "-X github.com/ondevice/ondevice/config.version="+version, "-o", "ondevice"
       bin.install "ondevice"
       prefix.install_metafiles
     end
   end
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
    <?xml version="1.0" encoding="UTF-8"?>
    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
    <plist version="1.0">
